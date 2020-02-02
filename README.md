@@ -1,10 +1,12 @@
 # WebAppOS
-## 使用JavaScript编写的可以在网页上（浏览器）运行小程序的框架（非微信小程序、QQ小程序等）
+使用JavaScript编写的可以在网页上（浏览器）运行小程序的框架（非微信小程序、QQ小程序等）
 
-# 旧版本1.0演示地址：https://yiban.glut.edu.cn/static/in/
-# 新版本2.0演示地址：https://yiban.glut.edu.cn/static/i/
+# 演示
+旧版本1.0演示地址：https://yiban.glut.edu.cn/static/in/  
+新版本2.0演示地址：https://yiban.glut.edu.cn/static/i/  
 以上项目以移动端使用为主。  
 源码已开源  
+开源版本使用JAVA制作，JDK1.8。
 
 # 特点
 小程序互相独立，可调用框架提供的api接口。  
