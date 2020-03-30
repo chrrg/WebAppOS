@@ -91,9 +91,12 @@ api对象可以实现各种常用操作
 
 # 演示图片
 ## Windows版开发工具，适用于多人协同开发小程序：
-![登录界面](https://s1.ax1x.com/2020/03/30/Gn2buT.png)
-![小程序列表显示](https://s1.ax1x.com/2020/03/30/Gn2LbF.png)  
-![小程序编辑界面](https://s1.ax1x.com/2020/03/30/Gn2v59.png)  
+![图片加载失败](./images/1.png)  
+登录界面  
+![图片加载失败](./images/2.png)  
+小程序列表显示  
+![图片加载失败](./images/3.png)  
+小程序编辑界面  
 ## Web版开发工具，随时随地不限系统开发：
 ![image](./images/4.png)  
 小程序列表显示  
@@ -101,8 +104,10 @@ api对象可以实现各种常用操作
 小程序HTML源码编辑界面  
 ![image](./images/6.png)  
 小程序JS源码编辑界面  
+
 ## Chrome作为小程序调试运行工具：
 ![image](./images/7.png)  
+
 ## 小程序运行效果：
 ![image](./images/8.png)  
 桌面壁纸小程序界面  
