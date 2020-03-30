@@ -91,27 +91,27 @@ api对象可以实现各种常用操作
 
 # 演示图片
 ## Windows版开发工具，适用于多人协同开发小程序：
-![image](../../images/1.png)
+![image](./images/1.png)
 登录界面
-![image](../../images/2.png)
+![image](./images/2.png)
 小程序列表显示
-![image](../../images/3.png)
+![image](./images/3.png)
 小程序编辑界面
 ## Web版开发工具，随时随地不限系统开发：
-![image](../../images/4.png)
+![image](./images/4.png)
 小程序列表显示
-![image](../../images/5.png)
+![image](./images/5.png)
 小程序HTML源码编辑界面
-![image](../../images/6.png)
+![image](./images/6.png)
 小程序JS源码编辑界面
 ## Chrome作为小程序调试运行工具：
-![image](../../images/7.png)
+![image](./images/7.png)
 ## 小程序运行效果：
-![image](../../images/8.png)
+![image](./images/8.png)
 桌面壁纸小程序界面
-![image](../../images/9.png)
+![image](./images/9.png)
 小组件管理小程序界面
-![image](../../images/10.png)
+![image](./images/10.png)
 桌面界面，可长按小组件或图标拖动或删除
 
 # 关于小程序自带应用
