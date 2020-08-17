@@ -4,18 +4,43 @@
 # 框架
 本框架可以在现代流行浏览器（IE10+、Chrome、FireFox、Safari等）上运行基于HTML，JS开发的应用。  
 其中桌面等应用均可以自行开发修改。  
+本框架已开源，可永久免费使用！
 
 # 演示
 演示地址：https://yiban.glut.edu.cn/static/in/  
 以上项目以移动端使用为主。  
-源码已开源  
-开源版本使用JAVA制作，JDK1.8。  
-可使用JAVA、PHP等作为后端。  
+源码已开源，可使用JAVA、PHP等作为后端。  
 
-# 定制版本
-适用校园应用开发、应用统一管理，支持多人同时上传源码，共同开发，远程编译等。
-定制欢迎私聊 QQ：877562884 备注 WebAppOS  
-定制内容包含：框架核心及源码、Windows版WebAppOS小程序开发工具、Android版WebAppOS应用安装包APK、免费技术支持、功能定制等  
+# 如何部署？
+## Java版
+将目录下所有文件部署到tomcat后  
+将数据库.sql导入MySQL数据库  
+/java/src/WebAppOSConfig.properties 数据库配置文件  
+运行tomcat即可  
+MySQL版本必须为8.0及以上版本，否则会出现部分字段无法导入  
+
+## PHP版
+将php目录下所有文件上传到服务器，将数据库.sql导入MySQL数据库即可  
+可使用nginx配置静态文件分离，static目录下设置静态访问以加快速度（可省略此步骤）  
+MySQL版本必须为8.0及以上版本，否则会出现部分字段无法导入  
+\php版\api\compile\为编译静态资源  
+\php版\api\os\config.class.php 数据库配置文件  
+
+## 访问地址
+框架访问地址：/webappos/static/os/  
+框架后台访问地址：/webappos/static/manage/  
+后台服务账号默认密码均为admin  
+第一次登录建议修改密码  
+
+# 产品建议或问题
+可以提issue或私聊 QQ：877562884 备注 WebAppOS  
+免费提供：框架核心及源码、Windows版WebAppOS小程序开发工具、Android版WebAppOS应用安装包APK、技术支持、功能定制等  
+
+# 使用系统黑科技
+使用iframe下domain的跨域特性让每一个同时运行的小程序互不干扰  
+使用https://github.com/chrrg/LiteStorage 缓存技术大大加快了二次访问的速度，设备兼容达99%  
+使用https://github.com/chrrg/js-setTimeout-Fix 封装技术解决Chrome内核下的bug  
+完全原生JS写法，每一行代码都是精华，拒绝冗余，只为更快的体验感觉。  
 
 # 特点
 小程序互相独立，可调用框架提供的api接口。  
