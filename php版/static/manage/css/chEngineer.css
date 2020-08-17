@@ -1,0 +1,193 @@
+html,body{
+	width:100%;
+	height:100%;
+	margin:0;
+}
+*:not(input):not(textarea){
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color: transparent;
+	touch-action: pan-y;
+}
+input[type=button],input[type=text],input[type=password]{-webkit-appearance:none;outline:none;}
+input,textarea,.copy{
+	-webkit-touch-callout:text;
+	-webkit-user-select:text;
+	-khtml-user-select:text;
+	-moz-user-select:text;
+	-ms-user-select:text;
+	user-select:text;
+}
+d{display:block;}/*div的缩写*/
+page{
+	display:none;
+}
+.ch-ripple{
+	position:relative;
+	overflow:hidden;
+}
+.toast{
+	position:fixed;
+	color:white;
+	z-index:9999;
+	height:auto;
+	line-height:18px;
+	text-align:center;
+	bottom:8%;
+	padding:10px;
+	max-width:90%;
+	overflow:hidden;
+	background-color:rgba(0,0,0,0.5);
+	transform:translate3d(-50%,0,0);
+	border-radius:10px;
+	min-width:30%;
+	min-height:14px;
+	opacity:0;
+	left:50%;
+	pointer-events:none;
+}
+.loading{
+	position:fixed;
+	left:0px;
+	right:0px;
+	width:130px;
+	height:130px;
+	top:50%;
+	transform:translate3d(0,-50%,0);
+	margin:0px auto;
+	text-align:center;
+	z-index:99999;
+	background-color:rgba(0, 0, 0, 0.6);
+	border-radius:5px;
+	color:#ffffff;
+	padding:4px;
+	opacity:0;
+	pointer-events:none;
+}
+.loading>div{
+	background-image:url('https://yiban.glut.edu.cn/static/in/img/loading.gif');
+    background-repeat: no-repeat;
+    position: relative;
+    top:20%;
+    width:30%;
+    height:30%;
+    margin:0px auto;
+    background-size:100% 100%;
+}
+.loading>span{
+	position:absolute;
+    bottom:20%;
+    left:0px;
+    right:0px;
+    font-size:14px;
+    line-height:14px;
+}
+/*弹窗开始*/
+.alert-hover{
+	width:100%;
+	height:100%;
+	background-color:rgba(0,0,0,0.5);
+	opacity:0;
+	transition:all 0.2s;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:999999;
+}
+.alert-hover>.alert{
+	width:80%;
+	position:relative;
+	top:50%;
+	margin:0 auto;
+	background-color:#ffffff;
+	border-radius:10px;
+	overflow:hidden;
+	transition:all 0.5s;
+	transform:translate3d(0,-40%,0) scale(0.01);
+}
+.alert>.alert-title{
+	padding:10px;
+}
+.alert>.alert-content{
+	padding:20px;
+	margin-bottom:20px;
+}
+.alert>.alert-button{
+	display:flex;
+	overflow:hidden;
+}
+.alert>.alert-button>.alert-button-item{
+	height:36px;
+	line-height:36px;
+	text-align:center;
+	flex:1;
+	border:1px solid #fafafa;
+	transition:all .2s
+}
+.alert>.alert-button>.alert-button-item:active{
+	background-color:#eee;
+}
+.alert .alert-radio{
+	width:100%;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: #fafafa;
+    border-radius: 0.25rem;
+    border: 1px solid #efefef;
+    text-align: center;
+}
+.alert .alert-checkbox{
+	width:100%;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: #fafafa;
+    border-radius: 0.25rem;
+    border: 1px solid #efefef;
+    text-align: center;
+}
+.alert .alert-input{
+	width:100%;
+	border: 1px solid #ced4da;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+/*弹窗结束*/
+.notificationSystem{
+	position:fixed;
+	bottom:50px;
+	right:0;
+	transition:all 0.5s;
+	padding:12px;
+	height:140px;
+	width:240px;
+	overflow:hidden;
+	background-color:rgba(2,35,64,0.9);
+	color:white;
+	border:1px solid rgba(255,255,255,0.53);
+	transform:translate3d(110%,0,0);
+	transition-timing-function:cubic-bezier(0,0.29,0.38,1.23);
+	z-index:9999999;
+	pointer-events:none;
+}
+view{
+	display:block;
+}
+template{
+	display:none;
+}
+iscroll,iscroll-y,iscroll-x{
+	backface-visibility: hidden;  
+	perspective:1000;
+	width:100%;
+	height:100%;
+	display: block;
+}
+li{
+	list-style:none;
+}

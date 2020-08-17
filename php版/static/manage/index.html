@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>WebAppOS管理端</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/chEngineer.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/art-template.min.js"></script>
+	<link href="layui/css/layui.css" rel="stylesheet">
+	<script src="layui/layui.all.js"></script>
+	<style>
+		[page]{
+			display:none;width:100%;height:100%;
+		}
+		#content{
+			background-color: #F0F0F0;
+		}
+	</style>
+</head>
+<body>
+<view page="login" >
+	<div style="height:100%;background-color:rgba(255,255,255,0.5);width:100%;border-radius:5px;display:flex;flex-direction: column;justify-content: center;">
+		<div style="margin:0 auto;width:70%;">
+			<div style="width:80%;margin:0 auto;font-size:30px;text-align:center;color:black;">
+				WebAppOS<br>后台管理系统
+			</div>
+			<fieldset class="layui-elem-field layui-field-title">
+				<legend>登录</legend>
+			</fieldset>
+			<br>
+			<div class="col-10 formbody" style="margin:0 auto;">
+				<form class="layui-form" id="login_formdata" style="padding:25px;">
+					<input type="hidden" name="type" value="login" /><!--防止自动填充-->
+					<input type="text" style="display: none;" disabled="" autocomplete="off" /><!--防止自动填充-->
+					<input type="password" style="display: none;" disabled="" autocomplete="off" /><!--防止自动填充-->
+					<div class="layui-form-item">
+						<label class="layui-form-label">账号：</label>
+						<div class="layui-input-block">
+							<input type="text" minlength="2" maxlength="255" class="layui-input" required="" placeholder="账号" name="zh" value="" autocomplete="off" />
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">密码：</label>
+						<div class="layui-input-block">
+							<input type="password" minlength="4" maxlength="255" class="layui-input" required="" placeholder="密码" name="mm" autocomplete="off" />
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<button type="submit" class="layui-btn layui-btn-fluid">登录</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</view>
+<view page="control">
+	<div style="display:flex;flex-direction:column;height:100%;">
+		<ul class="layui-nav layui-bg-blue" style="z-index:1;" id="header">
+			<li style="position: relative;display: inline-block;vertical-align: middle;line-height: 60px;padding:0px 20px;" bindtap="refreshController">WebAppOS在线管理工具</li>
+			<li class="layui-nav-item"><a bindtap="refreshController">浏览小程序列表</a></li>
+			<li class="layui-nav-item"><a bindtap="createApp">新建小程序</a></li>
+			<li class="layui-nav-item adminOption"><a bindtap="manageUser">管理用户</a></li>
+			<li class="layui-nav-item"><a bindtap="logout">Logout</a></li>
+		</ul>
+		<div style="display:flex;flex:1;height:0;">
+			<div style="height:100%;" class="side">
+				<iscroll-y>
+					<ul class="layui-nav layui-nav-tree layui-inline" style="width:100%;background-color:#2762a3;min-height:100%;">
+						<div id="applist"></div>
+						<li class="layui-nav-item" bindtap="createApp">
+							<a><span style="font-weight:bold;color:#00bbff;">+&nbsp;</span>创建新小程序</a>
+						</li>
+					</ul>
+				</iscroll-y>
+			</div>
+			<div style="flex:1;width:0;" id="content"></div>
+		</div>
+	</div>
+</view>
+<script type="text/html" id="template_apptable">
+	<fieldset class="layui-elem-field layui-field-title">
+		<legend>您创建的小程序列表：</legend>
+	</fieldset>
+	<div class="layui-card">
+		<div class="layui-card-header">小程序列表</div>
+		<div class="layui-card-body">
+			<div><button bindtap="createApp" class="layui-btn layui-btn-normal">创建小程序</button></div>
+			<table class="layui-hide" id="applistTable" lay-filter="applistTable"></table>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="template_createApp">
+	<fieldset class="layui-elem-field layui-field-title">
+		<legend>创建小程序</legend>
+	</fieldset>
+	<br>
+	<div class="col-10 formbody" style="margin:0 auto;">
+		<div class="layui-card">
+			<div class="layui-card-header">创建小程序</div>
+			<div class="layui-card-body">
+				<form class="layui-form" id="addapp_formdata" style="padding:25px;">
+					<input type="hidden" name="type" value="addapp" /><!--防止自动填充-->
+					<div class="layui-form-item">
+						<label class="layui-form-label">小程序标题：</label>
+						<div class="layui-input-block">
+							<input type="text" minlength="2" maxlength="255" class="layui-input" required="" placeholder="输入小程序的标题，不能与现有小程序重名" name="appname" value="" autocomplete="off" />
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">小程序简介：</label>
+						<div class="layui-input-block">
+							<input type="text" minlength="5" maxlength="255" class="layui-input" required="" placeholder="描述一下小程序的功能和目的吧" name="appdes" autocomplete="off" />
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<button type="submit" class="layui-btn layui-btn-fluid">立即创建</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="template_applist">
+	{{each data a}}
+	<li class="layui-nav-item">
+		<a bindtap="chooseApp" data-appid="{{a[1]}}">{{a[2]}}</a>
+		<dl class="layui-nav-child">
+			<dd bindtap="editFile" data-appid="{{a[1]}}" data-type="0"><a>HTML文件</a></dd>
+			<dd bindtap="editFile" data-appid="{{a[1]}}" data-type="1"><a>JS文件</a></dd>
+			<dd bindtap="editFile" data-appid="{{a[1]}}" data-type="2"><a>JSON文件</a></dd>
+<!--			<dd bindtap="createFile">-->
+<!--				<a><span style="font-weight:bold;color:#ff80ff;">+&nbsp;</span>新建文件</a>-->
+<!--			</dd>-->
+		</dl>
+	</li>
+	{{/each}}
+</script>
+<script type="text/html" id="template_appinfo">
+	<fieldset class="layui-elem-field layui-field-title">
+		<legend>小程序详情</legend>
+	</fieldset>
+	<div class="layui-card" style="margin:0 5%;">
+		<div class="layui-card-header">小程序信息</div>
+		<div class="layui-card-body">
+			<fieldset class="layui-elem-field layui-field-title">
+				<legend>{{data.name}}</legend>
+				<div class="layui-field-box">
+					<div>应用描述：{{data.des}}</div>
+					<div>应用公钥：<copy style="user-select: text;">{{apphash}}</copy></div>
+					<div>私钥：<copy style="user-select: text;">{{data.privatekey}}</copy></div>
+					<div>体验版本号：{{data.version1}}</div>
+					<div>线上版本号：{{data.version2}}</div>
+                    <div><button bindtap="uploadImg" data-appid="{{appid}}" class="layui-btn layui-btn-normal">上传应用图标</button></div>
+					<div><button bindtap="chooseApp" data-appid="{{appid}}" class="layui-btn layui-btn-normal">刷新源码</button></div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div class="layui-card" style="margin:0 5%;">
+		<div class="layui-card-header">编辑源码</div>
+		<div class="layui-card-body">
+			<button bindtap="editFile" data-appid="{{appid}}" data-type="0" class="layui-btn layui-btn-normal">编辑HTML</button>
+			<button bindtap="editFile" data-appid="{{appid}}" data-type="1" class="layui-btn layui-btn-normal">编辑JS</button>
+			<button bindtap="editFile" data-appid="{{appid}}" data-type="2" class="layui-btn layui-btn-normal">编辑JSON</button>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="template_editCode">
+<fieldset class="layui-elem-field layui-field-title">
+	<legend>编辑代码 - {{title}}</legend>
+</fieldset>
+<pre id="code" class="ace_editor" style="min-height:400px">
+<textarea class="ace_text-input"></textarea>
+</pre>
+<div class="layui-card">
+	<div class="layui-card-header">操作</div>
+	<div class="layui-card-body">
+		<button bindtap="uploadCode" data-appid="{{appid}}" data-type="{{type}}" class="layui-btn layui-btn-normal">上传源码</button>
+		<button bindtap="compileApp" data-appid="{{appid}}" class="layui-btn layui-btn-normal">编译</button>
+		<button bindtap="submitApp" data-appid="{{appid}}" class="layui-btn layui-btn-normal">提交审核</button>
+
+	</div>
+</div>
+</script>
+<script type="text/html" id="template_toolbar">
+	<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">查看</a>
+</script>
+<script type="text/html" id="template_manageUser">
+	<fieldset class="layui-elem-field layui-field-title">
+		<legend>所有用户列表：</legend>
+	</fieldset>
+	<div class="layui-card">
+		<div class="layui-card-header">用户列表</div>
+		<div class="layui-card-body">
+			<div><button bindtap="createUser" class="layui-btn layui-btn-normal">新增用户</button></div>
+			<table class="layui-hide" id="manageUserTable" lay-filter="manageUserTable"></table>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="manageUserTool">
+	<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="changePwd">修改密码</a>
+</script>
+
+</body>
+<script src="js/chEngineer.js"></script>
+<script src="js/index.js"></script>
+<script src="js/base64.min.js"></script>
+<script src="ace/ace.js"></script>
+<script src="ace/ext-language_tools.js"></script>
+</html>
