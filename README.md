@@ -1,5 +1,6 @@
 # WebAppOS
 使用JavaScript编写的可以在网页上（浏览器）运行小程序的框架（非微信小程序、QQ小程序等）
+官方Q群：826920854  
 
 # 框架
 本框架可以在现代流行浏览器（IE10+、Chrome、FireFox、Safari等）上运行基于HTML，JS开发的应用。  
