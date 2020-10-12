@@ -30,41 +30,6 @@ $type=r("type");
 			}else{
 				p(80,"账号或密码错误！");
 			}
-			/*include_once "../../module/auth.class.php";//授权
-			
-			$auth=new auth;
-			if($zh=="19907737211"&&$mm=="a8993791"){
-				$user="ec922f60a21e99c65c22c4a1237a8fa8e2f0d700";
-				$userid=1;
-				$yb_userid=935551;
-				$hash=$auth->get_accesstoken($userid,"dev2",time()+86400);
-				j([
-					"res"=>100,
-					"logintime"=>time(),
-					"userid"=>$user,
-					"hash"=>$hash,
-				]);
-				return;
-			}
-			
-			$res=$auth->login_yb($zh,$mm);
-			if($res["code"]==100){
-				$user=$res["user"];
-				//var_dump($user);die;
-				$userid=$res["userid"];
-			//if($zh=="19907737211"&&$mm="a8993791"){
-				$yb_userid=$res["yb_userid"];
-				$hash=$auth->get_accesstoken($userid,"dev2",time()+86400);
-				//$con->query("");
-				j(array(
-					"res"=>100,
-					"logintime"=>time(),
-					"userid"=>$user,
-					"hash"=>$hash,
-				));
-			}else{
-				p(80,"账号或密码错误！");
-			}*/
 			
 			return;
 		case "listapp"://开发工具列应用
